@@ -1,6 +1,6 @@
 <template>
   <div class="card" style="width: 18rem">
-    <img :src="sprite" alt="..." class="card-img-top" />
+    <img :src="pokemon.picture" alt="..." class="card-img-top" />
     <div class="card-body">
       <h5 class="card-title">
         <b>{{ pokemon.name }}</b>
@@ -21,7 +21,7 @@
 <script>
 import axios from "axios";
 export default {
-  name: "PokemonList",
+  name: "CharacterList",
   props: {
     pokemon: Object,
   },
@@ -31,7 +31,7 @@ export default {
     };
   },
   methods: {
-    async loadPokemonData(url) {
+    async loadCharacterData(url) {
       const res = await axios.get(url)
       this.sprite = res.data.sprites.front_default
     },
@@ -39,12 +39,12 @@ export default {
   watch:{
     pokemon:{
       handler: function (val, oldVal) { 
-        this.loadPokemonData(val.url)
+        this.loadCharacterData(val.url)
       }
     }
   },
   created() {
-    this.loadPokemonData(this.pokemon.url)
+    this.loadCharacterData(this.pokemon.url)
   },
 };
 </script>

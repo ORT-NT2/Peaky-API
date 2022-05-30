@@ -1,18 +1,18 @@
 <template>
   <div>
     <PokemonSelector />
-    <PokemonList />
+    <CharacterList />
   </div>
 </template>
 
 <script>
-import PokemonList from "./components/PokemonList.vue";
+import CharacterList from "./components/CharacterList.vue";
 import PokemonSelector from "./components/PokemonSelector.vue";
 
 export default {
   name: "App",
   components: {
-    PokemonList,
+    CharacterList,
     PokemonSelector,
   },
 };

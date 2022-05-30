@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row justify-content-center">
       <div :key="p.id" v-for="p in pokemons" class="col-4 mt-4">
-        <PokemonCard :pokemon="p" />
+        <CharacterCard :pokemon="p" />
       </div>
     </div>
     <div class="button-group">
@@ -13,13 +13,13 @@
 </template>
 
 <script>
-import PokemonCard from "./PokemonCard.vue";
+import CharacterCard from "./CharacterCard.vue";
 import axios from "axios";
 
 export default {
-  name: "PokemonList",
+  name: "CharacterList",
   components: {
-    PokemonCard,
+    CharacterCard,
   },
   data() {
     return {
@@ -28,24 +28,24 @@ export default {
     };
   },
   methods: {
-    async loadPokemons(url = "https://pokeapi.co/api/v2/pokemon/") {
+    async loadCharacters(url = "https://6282cdc538279cef71cd15d8.mockapi.io/api/Characters") {
       const res = await axios.get(url);
-      const { results, previous, next } = res.data;
-      this.pokemons = results;
-      this.urls.prev = previous;
-      this.urls.next = next;
+      const data = res.data;
+      this.pokemons = data;
+      /*this.urls.prev = previous;
+      this.urls.next = next;*/
       document.getElementById("btnPrev").disabled = !this.urls.prev;
       document.getElementById("btnNext").disabled = !this.urls.next;
     },
     async prev() {
-      this.loadPokemons(this.urls.prev);
+      this.loadCharacters(this.urls.prev);
     },
     async next() {
-      this.loadPokemons(this.urls.next);
+      this.loadCharacters(this.urls.next);
     },
   },
   created() {
-    this.loadPokemons();
+    this.loadCharacters();
   },
 };
 </script>

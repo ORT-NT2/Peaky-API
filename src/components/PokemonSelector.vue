@@ -8,7 +8,7 @@
 
 <script>
 export default {
-name: "PokemonList",
+name: "CharacterList",
 data () {
     return {
         id: null
