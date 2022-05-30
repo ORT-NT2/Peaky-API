@@ -1,12 +1,12 @@
 <template>
   <div class="card" style="width: 18rem">
-    <img :src="pokemon.picture" alt="..." class="card-img-top" />
+    <img :src="character.picture" alt="..." class="card-img-top" />
     <div class="card-body">
       <h5 class="card-title">
-        <b>{{ pokemon.name }}</b>
+        <b>{{ character.name }}</b>
       </h5>
       <div class="d-flex justify-content-between">
-        <span>{{ pokemon.name }}</span>
+        <span>{{ character.name }}</span>
       </div>
       <div class="d-flex justify-content-between">
         <span>{{}}</span>
@@ -23,7 +23,7 @@ import axios from "axios";
 export default {
   name: "CharacterList",
   props: {
-    pokemon: Object,
+    character: Object,
   },
   data() {
     return {
@@ -37,14 +37,14 @@ export default {
     },
   },
   watch:{
-    pokemon:{
+    character:{
       handler: function (val, oldVal) { 
         this.loadCharacterData(val.url)
       }
     }
   },
   created() {
-    this.loadCharacterData(this.pokemon.url)
+    this.loadCharacterData(this.character.url)
   },
 };
 </script>
