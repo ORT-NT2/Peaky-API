@@ -1,16 +1,17 @@
 <template>
   <div>
-    <CharacterList />
+    <Navbar />
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import CharacterList from "./components/characters/CharacterList.vue";
+import Navbar from "./components/utils/Navbar.vue";
 
 export default {
   name: "App",
   components: {
-    CharacterList,
-  },
+    Navbar,
+  }
 };
 </script>

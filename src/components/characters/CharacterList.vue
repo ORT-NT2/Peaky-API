@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row justify-content-center">
       <div :key="c.id" v-for="c in characters" class="col-4 mt-4">
-        <CharacterCard :c="p" />
+        <CharacterCard :c="c" />
       </div>
     </div>
   <!--  <div class="button-group">

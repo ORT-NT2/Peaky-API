@@ -19,32 +19,10 @@
 </template>
 
 <script>
-import axios from "axios";
 export default {
-  name: "CharacterList",
+  name: "CharacterCard",
   props: {
     character: Object,
-  },
-  data() {
-    return {
-      sprite: String,
-    };
-  },
-  methods: {
-    async loadCharacterData(url) {
-      const res = await axios.get(url)
-      this.sprite = res.data.sprites.front_default
-    },
-  },
-  watch:{
-    character:{
-      handler: function (val, oldVal) { 
-        this.loadCharacterData(val.url)
-      }
-    }
-  },
-  created() {
-    this.loadCharacterData(this.character.url)
   },
 };
 </script>
