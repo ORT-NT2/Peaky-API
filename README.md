@@ -1,4 +1,4 @@
-# poke-api
+# peaky-api
 
 ## Project setup
 ```
